@@ -5,12 +5,25 @@ coinContract = web3.eth.contract(contractABI);
 contractInstance = coinContract.at(contractAddress);
 
 function RefreshValueTable() {
-	 accounts = web3.eth.accounts;
-	  for (var i = 0; i < accounts.length; i++) {
-		    let address = accounts[i]
-			      let value = contractInstance.getBalanceOf.call(address).toString();
-		      $("#address-"+i.toString()).html(address);
-		        $("#value-"+i.toString()).html(value);
-			 }
+ accounts = web3.eth.accounts;
+ for (var i = 0; i < accounts.length; i++) {
+  let address = accounts[i]
+  let value = contractInstance.getBalanceOf.call(address).toString();
+  $("#address-"+i.toString()).html(address);
+  $("#value-"+i.toString()).html(value);
+ }
 }
+
+function TransferCoin(from, to, value) {
+ from = $("#from").val();
+ to = $("#to").val();
+ value = $("#value").val();
+ try {
+  contractInstance.transfer(from, to, value, {from: web3.eth.accounts[0]});
+  RefreshValueTable();
+ } catch (err) {
+ }
+}
+
+$(document).ready(RefreshValueTable());
 
