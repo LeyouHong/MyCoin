@@ -1,6 +1,6 @@
 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-contractABI = JSON.parse('填入info.backup中的interface数据');
-contractAddress = '填入info.backup中的address数据';
+contractABI = JSON.parse('[{"constant":false,"inputs":[],"name":"getSymbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"coinSymbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"addr","type":"address"}],"name":"getBalanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"symbol","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]');
+contractAddress = '0x9cf8ce5b9e1354da76584cdf38c3109b2f4389fa';
 coinContract = web3.eth.contract(contractABI);
 contractInstance = coinContract.at(contractAddress);
 
