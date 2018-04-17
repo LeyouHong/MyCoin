@@ -12,3 +12,6 @@ byteCode = solCompiled.contracts[':MyCoin'].bytecode
 coinContract = web3.eth.contract(abiInfo)
 deployed = coinContract.new({data: byteCode, from: web3.eth.accounts[0], gas: 3000000})
 
+//check
+//deployed.address
+//deployed.getBalanceOf.call(web3.eth.accounts[0]).toString()
